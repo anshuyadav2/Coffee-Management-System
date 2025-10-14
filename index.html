@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bean</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo"><a href="#">Brew & <span>Bean</span></a></div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="cart-icon" tabindex="0" aria-label="Shopping Cart" onclick="toggleCart()" onkeypress="if(event.key==='Enter'){toggleCart()}">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<div class="content">
+    <h2>Brew & Bean</h2>
+    <p>Start your day with a delightful coffee & treats!</p>
+</div>
+
+<!-- Menu Section -->
+<div class="menu" id="menu">
+    <div class="menu-header">
+        <h3>Menu</h3>
+        <h4>Brew & Bean Menu</h4>
+    </div>
+    <div class="filter-bar">
+        <button class="active" data-type="all">All</button>
+        <button data-type="hot">Hot Coffee</button>
+        <button data-type="cold">Cold Coffee</button>
+        <button data-type="frappuccino">Frappuccino</button>
+        <button data-type="cakes">Cakes</button>
+        <button data-type="pastry">Pastries</button>
+        <button data-type="fries">Fries</button>
+    </div>
+    <input type="text" id="search-input" placeholder="Search items..." aria-label="Search Coffees, Cakes, Pastries, Fries">
+    <div class="menu-content" id="menu-content"></div>
+</div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cart-sidebar" aria-label="Shopping Cart Panel" role="region">
+    <h3>My Cart</h3>
+    <button class="close-cart" onclick="toggleCart()" aria-label="Close Cart">&times;</button>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Contact Section -->
+<div class="contact" id="contact">
+    <div class="contact-box">
+        <div class="contact-image">
+            <img src="img/bg-image.jpeg" alt="Contact Us Image">
+        </div>
+    </div>
+    <div class="contact-box">
+        <div class="contact-body">
+            <form id="contact-form">
+                <h2>Contact Us</h2>
+                
+                <div class="form-content">
+                    <input type="email" id="contact-email" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+
+                <div class="form-content">
+                    <textarea id="contact-message" rows="5" required></textarea>
+                    <span></span>
+                    <label>Message</label>
+                </div>
+
+                <button type="submit">Send</button>
+                <p id="form-message" style="color: orange; opacity:0; transition:0.5s;"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-box">
+        <div class="social-media">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="copyright">
+            <label>Copyright &copy; 2025</label>
+        </div>
+        <div class="brand">
+            <label>Brew & <span>Bean</span></label>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
