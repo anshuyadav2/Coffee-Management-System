@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brew & Bean</title>
+<title>Brew & Bean | Premium Coffee & Treats</title>
+<meta name="description" content="Start your day with a delightful coffee & treats from Brew & Bean. Explore our menu and place your order.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <div class="logo"><a href="#">Brew & <span>Bean</span></a></div>
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#menu-section">Menu</a></li>
+            <li><a href="#contact-section">Contact</a></li>
         </ul>
     </nav>
     <div class="cart-icon" tabindex="0" aria-label="Shopping Cart" onclick="toggleCart()" onkeypress="if(event.key==='Enter'){toggleCart()}">
@@ -26,32 +25,63 @@
     </div>
 </header>
 
-<!-- Hero Section -->
-<div class="content">
-    <h2>Brew & Bean</h2>
-    <p>Start your day with a delightful coffee & treats!</p>
-</div>
+<main>
+<section class="content">
+    <div class="hero-overlay">
+        <h2>Brew & Bean</h2>
+        <p>Start your day with a delightful coffee & treats!</p>
+        <a href="#menu-section" class="btn-primary">Explore Our Menu</a>
+    </div>
+</section>
 
-<!-- Menu Section -->
-<div class="menu" id="menu">
+<section class="menu-section" id="menu-section">
     <div class="menu-header">
-        <h3>Menu</h3>
-        <h4>Brew & Bean Menu</h4>
+        <h3>Our Menu</h3>
+        <h4>Freshly Brewed & Baked Daily</h4>
     </div>
     <div class="filter-bar">
-        <button class="active" data-type="all">All</button>
+        <button class="active" data-type="all">All Items</button>
         <button data-type="hot">Hot Coffee</button>
         <button data-type="cold">Cold Coffee</button>
         <button data-type="frappuccino">Frappuccino</button>
         <button data-type="cakes">Cakes</button>
         <button data-type="pastry">Pastries</button>
-        <button data-type="fries">Fries</button>
+        <button data-type="fries">Sides</button>
     </div>
-    <input type="text" id="search-input" placeholder="Search items..." aria-label="Search Coffees, Cakes, Pastries, Fries">
+    <input type="text" id="search-input" placeholder="Search coffees, cakes, or sides..." aria-label="Search Coffees, Cakes, Pastries, Fries">
     <div class="menu-content" id="menu-content"></div>
-</div>
+</section>
 
-<!-- Cart Sidebar -->
+<section class="contact-section" id="contact-section">
+    <div class="contact-box contact-image-box">
+        <img src="img/bg-image.jpeg" alt="Aesthetic coffee shop interior">
+    </div>
+    <div class="contact-box contact-form-box">
+        <div class="contact-body">
+            <form id="contact-form">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you!</p>
+                
+                <div class="form-content">
+                    <input type="email" id="contact-email" required>
+                    <span></span>
+                    <label for="contact-email">Email</label>
+                </div>
+
+                <div class="form-content">
+                    <textarea id="contact-message" rows="5" required></textarea>
+                    <span></span>
+                    <label for="contact-message">Message</label>
+                </div>
+
+                <button type="submit">Send Message</button>
+                <p id="form-message" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+
 <div class="cart-sidebar" id="cart-sidebar" aria-label="Shopping Cart Panel" role="region">
     <h3>My Cart</h3>
     <button class="close-cart" onclick="toggleCart()" aria-label="Close Cart">&times;</button>
@@ -60,40 +90,10 @@
         <span>Total:</span>
         <span id="cart-total">₹0</span>
     </div>
-    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    <button class="checkout-btn" onclick="checkout()">Checkout Now</button>
 </div>
 
-<!-- Contact Section -->
-<div class="contact" id="contact">
-    <div class="contact-box">
-        <div class="contact-image">
-            <img src="img/bg-image.jpeg" alt="Contact Us Image">
-        </div>
-    </div>
-    <div class="contact-box">
-        <div class="contact-body">
-            <form id="contact-form">
-                <h2>Contact Us</h2>
-                
-                <div class="form-content">
-                    <input type="email" id="contact-email" required>
-                    <span></span>
-                    <label>Email</label>
-                </div>
-
-                <div class="form-content">
-                    <textarea id="contact-message" rows="5" required></textarea>
-                    <span></span>
-                    <label>Message</label>
-                </div>
-
-                <button type="submit">Send</button>
-                <p id="form-message" style="color: orange; opacity:0; transition:0.5s;"></p>
-            </form>
-        </div>
-    </div>
-</div>
-
+<div id="toast-container" aria-live="polite"></div>
 <!-- Footer -->
 <div class="footer">
     <div class="footer-box">
@@ -111,9 +111,6 @@
         </div>
     </div>
 </div>
-
-<!-- Toast Notification -->
-<div id="toast-container"></div>
 
 <script src="script.js"></script>
 </body>
